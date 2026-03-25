@@ -2,7 +2,7 @@
 
 **CDT-III** extends mechanism-oriented AI across the full central dogma: DNA, RNA, and protein. Its two-stage architecture mirrors the spatial compartmentalization of the cell: VCE-N models transcription in the nucleus and VCE-C models translation in the cytosol.
 
-📄 **Paper**: [arXiv (coming soon)]()
+📄 **Paper**: [arXiv:2603.23361](https://arxiv.org/abs/2603.23361)
 🧬 **CDT-II**: [arXiv:2602.08751](https://arxiv.org/abs/2602.08751) | [GitHub](https://github.com/nobusama/CDT2)
 📊 **Data**: [HuggingFace](https://huggingface.co/datasets/nobusama17/CDT2-data)
 
@@ -74,7 +74,8 @@ Pre-computed embeddings and training data are available at [HuggingFace](https:/
   title={Central Dogma Transformer III: Interpretable AI Across DNA, RNA, and Protein},
   author={Ota, Nobuyuki},
   year={2026},
-  note={Preprint}
+  journal={arXiv preprint arXiv:2603.23361},
+  note={arXiv:2603.23361}
 }
 ```
 
