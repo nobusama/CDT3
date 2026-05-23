@@ -129,10 +129,10 @@ models_b = [
     # Arc perturbation (orange) — slight right of green cluster
     (0.28, 0.20, "STATE (Arc)",    "#f0b070", 250,  7,  6),
     (0.32, 0.14, "Tahoe-100M",     "#f0b070", 200,  7,  6),
-    # 2-modality concat (multi-omics integration camp)
-    (0.38, 0.58, "totalVI (RNA+Protein)",  "#e8a8a8", 200,  7,  6),
-    (0.40, 0.68, "MultiVI (RNA+ATAC)",      "#e8a8a8", 200,  7,  6),
-    (0.55, 0.62, "GLUE (RNA+ATAC)",         "#e8a8a8", 200,  7,  6),
+    # 2-modality concat (multi-omics integration camp) — clearly within 2-modality band
+    (0.40, 0.42, "totalVI (RNA+Protein)",  "#e8a8a8", 200,  7,  6),
+    (0.42, 0.50, "MultiVI (RNA+ATAC)",      "#e8a8a8", 200,  7,  6),
+    (0.58, 0.46, "GLUE (RNA+ATAC)",         "#e8a8a8", 200,  7,  6),
     # 3-modality concat (CD-GPT)
     (0.55, 0.85, "CD-GPT\n(DNA+RNA+Protein, concat)", "#c8a8d8", 230,  7, 6),
     # CDT — top-right, alone
@@ -154,14 +154,14 @@ for x, y, name, color, size, dx, dy in models_b:
                 fontweight=weight,
                 color="#c8334d" if name == "CDT" else "black")
 
-# CDT annotation — moved to lower-right empty space, no title overlap
+# CDT annotation — moved to upper-left empty zone, clear of multi-omics band
 ax.annotate("CDT alone in this corner:\n3 experimental modalities (DNA + RNA + Protein)\n+ architectural cascade (VCE-N → VCE-C,\n  reflecting the central dogma)",
-            xy=(0.91, 0.88), xytext=(0.68, 0.45),
+            xy=(0.91, 0.88), xytext=(0.28, 0.78),
             fontsize=9.5, color="#c8334d", fontweight="bold", ha="center",
             bbox=dict(boxstyle="round,pad=0.4", fc="white",
                       ec="#c8334d", lw=1.2, alpha=0.95),
             arrowprops=dict(arrowstyle="->", color="#c8334d", lw=1.5,
-                            connectionstyle="arc3,rad=0.20"))
+                            connectionstyle="arc3,rad=-0.10"))
 
 ax.set_xlim(0, 1)
 ax.set_ylim(0, 1)
