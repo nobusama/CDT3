@@ -29,6 +29,10 @@ models_a = [
     (0.42, 0.18, "scFoundation",      "#a8d8a8", 200,  7,  6),
     (0.58, 0.22, "UCE",               "#a8d8a8", 200,  7,  6),
     (0.55, 0.32, "Geneformer",        "#a8d8a8", 200,  7,  6),
+    # Multi-omics integration (VAE / graph) — observational multi-modal data
+    (0.65, 0.42, "totalVI",           "#e8a8a8", 200,  7,  6),
+    (0.75, 0.48, "MultiVI",           "#e8a8a8", 200,  7,  6),
+    (0.68, 0.50, "GLUE",              "#e8a8a8", 200, -34, -16),
     # Scale-driven perturbation
     (0.82, 0.20, "STATE (Arc)",       "#f0b070", 250,  7,  6),
     (0.92, 0.10, "Tahoe-100M",        "#f0b070", 200, -45, -16),
@@ -125,8 +129,10 @@ models_b = [
     # Arc perturbation (orange) — slight right of green cluster
     (0.28, 0.20, "STATE (Arc)",    "#f0b070", 250,  7,  6),
     (0.32, 0.14, "Tahoe-100M",     "#f0b070", 200,  7,  6),
-    # 2-modality concat
-    (0.48, 0.56, "CITE-seq based\n(RNA+Protein, concat)", "#e8a8a8", 200,  7, 6),
+    # 2-modality concat (multi-omics integration camp)
+    (0.38, 0.58, "totalVI (RNA+Protein)",  "#e8a8a8", 200,  7,  6),
+    (0.40, 0.68, "MultiVI (RNA+ATAC)",      "#e8a8a8", 200,  7,  6),
+    (0.55, 0.62, "GLUE (RNA+ATAC)",         "#e8a8a8", 200,  7,  6),
     # 3-modality concat (CD-GPT)
     (0.55, 0.85, "CD-GPT\n(DNA+RNA+Protein, concat)", "#c8a8d8", 230,  7, 6),
     # CDT — top-right, alone
