@@ -129,10 +129,10 @@ models_b = [
     # Arc perturbation (orange) — slight right of green cluster
     (0.28, 0.20, "STATE (Arc)",    "#f0b070", 250,  7,  6),
     (0.32, 0.14, "Tahoe-100M",     "#f0b070", 200,  7,  6),
-    # 2-modality concat (multi-omics integration camp) — clearly within 2-modality band
-    (0.40, 0.42, "totalVI (RNA+Protein)",  "#e8a8a8", 200,  7,  6),
-    (0.42, 0.50, "MultiVI (RNA+ATAC)",      "#e8a8a8", 200,  7,  6),
-    (0.58, 0.46, "GLUE (RNA+ATAC)",         "#e8a8a8", 200,  7,  6),
+    # 2-modality concat (multi-omics integration camp) — within new 2-modality band (0.50-0.78)
+    (0.40, 0.58, "totalVI (RNA+Protein)",  "#e8a8a8", 200,  7,  6),
+    (0.42, 0.66, "MultiVI (RNA+ATAC)",      "#e8a8a8", 200,  7,  6),
+    (0.58, 0.62, "GLUE (RNA+ATAC)",         "#e8a8a8", 200,  7,  6),
     # 3-modality concat (CD-GPT)
     (0.55, 0.85, "CD-GPT\n(DNA+RNA+Protein, concat)", "#c8a8d8", 230,  7, 6),
     # CDT — top-right, alone
@@ -172,14 +172,14 @@ ax.set_ylabel("Modality breadth (experimental data)  →\n(1    →    2    → 
 ax.set_title("Panel b — Biology landscape: modality breadth × architectural integration",
              fontsize=13, fontweight="bold", pad=12)
 
-# Tier guidelines for modality count
-for ytick in [0.30, 0.60]:
+# Tier guidelines for modality count (1-mod: 0-0.50, 2-mod: 0.50-0.78, 3-mod: 0.78-1.0)
+for ytick in [0.50, 0.78]:
     ax.axhline(ytick, color="gray", linewidth=0.4, linestyle=":", alpha=0.35)
-ax.text(0.985, 0.16, "1 modality", fontsize=9, color="gray",
+ax.text(0.985, 0.25, "1 modality", fontsize=9, color="gray",
         style="italic", alpha=0.7, ha="right")
-ax.text(0.985, 0.46, "2 modalities", fontsize=9, color="gray",
+ax.text(0.985, 0.64, "2 modalities", fontsize=9, color="gray",
         style="italic", alpha=0.7, ha="right")
-ax.text(0.985, 0.76, "3 modalities", fontsize=9, color="gray",
+ax.text(0.985, 0.92, "3 modalities", fontsize=9, color="gray",
         style="italic", alpha=0.7, ha="right")
 
 ax.set_xticks([])
