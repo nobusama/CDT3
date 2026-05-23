@@ -18,6 +18,9 @@ models_a = [
     (0.07, 0.18, "DNABERT-2",         "#999999", 200,  7,  6),
     # Structural priors
     (0.22, 0.55, "AlphaFold",         "#8aa6c8", 200,  7,  6),
+    # Sequence-to-function family (observational genomic data, DNA → multi-output)
+    (0.32, 0.42, "AlphaGenome",       "#7ac8b8", 200,  7,  6),
+    (0.32, 0.32, "Enformer",          "#7ac8b8", 200,  7,  6),
     # Single-cell RNA foundation models (slight horizontal jitter)
     (0.45, 0.30, "scGPT",             "#a8d8a8", 200,  7,  6),
     (0.42, 0.18, "scFoundation",      "#a8d8a8", 200,  7,  6),
@@ -105,6 +108,9 @@ models_b = [
     (0.04, 0.30, "DNABERT-2",      "#999999", 200,  7,  6),
     # Protein-only single (blue)
     (0.04, 0.42, "AlphaFold",      "#8aa6c8", 200,  7,  6),
+    # Sequence-to-function family (DNA → multi-output predictions, 1 input modality)
+    (0.04, 0.06, "Enformer",       "#7ac8b8", 200,  7,  6),
+    (0.10, 0.40, "AlphaGenome",    "#7ac8b8", 200,  7,  6),
     # RNA-only single-cell foundation models (green) — slightly right jitter
     (0.14, 0.16, "scFoundation",   "#a8d8a8", 200,  7,  6),
     (0.18, 0.22, "scGPT",          "#a8d8a8", 200,  7,  6),
@@ -169,8 +175,8 @@ ax.set_yticks([])
 for spine in ax.spines.values():
     spine.set_linewidth(1.2)
 
-ax.text(0.02, 0.02, "single-modality\nfoundation models", fontsize=8.5,
-        color="gray", style="italic", alpha=0.7)
+ax.text(0.02, 0.96, "single-modality\nfoundation models", fontsize=8.5,
+        color="gray", style="italic", alpha=0.7, va="top")
 
 plt.tight_layout()
 plt.savefig("landscape_panel_b_biology.png",
