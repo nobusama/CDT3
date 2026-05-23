@@ -22,22 +22,22 @@ models_a = [
     (0.30, 0.10, "ESM-2",             "#c8a888", 200,  7,  6),
     (0.10, 0.42, "ESM-3",             "#c8a888", 200,  7,  6),
     # Sequence-to-function family (observational genomic data, DNA → multi-output)
-    (0.32, 0.42, "AlphaGenome",       "#7ac8b8", 200,  7,  6),
-    (0.32, 0.32, "Enformer",          "#7ac8b8", 200,  7,  6),
+    (0.42, 0.50, "AlphaGenome",       "#7ac8b8", 200,  7,  6),
+    (0.42, 0.42, "Enformer",          "#7ac8b8", 200,  7,  6),
     # Single-cell RNA foundation models (slight horizontal jitter)
     (0.45, 0.30, "scGPT",             "#a8d8a8", 200,  7,  6),
     (0.42, 0.18, "scFoundation",      "#a8d8a8", 200,  7,  6),
     (0.58, 0.22, "UCE",               "#a8d8a8", 200,  7,  6),
     (0.55, 0.32, "Geneformer",        "#a8d8a8", 200,  7,  6),
-    # Multi-omics integration (VAE / graph) — observational multi-modal data
-    (0.65, 0.42, "totalVI",           "#e8a8a8", 200,  7,  6),
-    (0.75, 0.48, "MultiVI",           "#e8a8a8", 200,  7,  6),
-    (0.68, 0.50, "GLUE",              "#e8a8a8", 200, -34, -16),
+    # Multi-omics integration (VAE / graph) — observational multi-modal data, mid IB
+    (0.55, 0.55, "totalVI",           "#e8a8a8", 200,  7,  6),
+    (0.62, 0.62, "MultiVI",           "#e8a8a8", 200,  7,  6),
+    (0.62, 0.50, "GLUE",              "#e8a8a8", 200,  7,  6),
     # Scale-driven perturbation
     (0.82, 0.20, "STATE (Arc)",       "#f0b070", 250,  7,  6),
     (0.92, 0.10, "Tahoe-100M",        "#f0b070", 200, -45, -16),
     # High-IB camp
-    (0.50, 0.78, "PerturbedVAE",      "#c8a8d8", 200,  7,  6),
+    (0.72, 0.74, "PerturbedVAE",      "#c8a8d8", 200,  -95,  -4),
     (0.20, 0.88, "Mechanistic\nODE / BoolNet", "#c8a8d8", 180,  7,  -10),
     # CDT
     (0.88, 0.85, "CDT",               "#c8334d", 500, 14, -4),
@@ -58,14 +58,15 @@ for x, y, name, color, size, dx, dy in models_a:
                 fontweight=weight,
                 color="#c8334d" if name == "CDT" else "black")
 
-# CDT corner annotation — moved into empty middle-right space, no title overlap
+# CDT corner annotation — upper-middle empty zone, just below title
 ax.annotate("CDT alone in this corner:\nhigh inductive bias  +  high empirical grounding\n(CRISPRi + CITE-seq experimental data)",
-            xy=(0.86, 0.82), xytext=(0.62, 0.62),
+            xy=(0.88, 0.85), xytext=(0.50, 0.94),
             fontsize=9.5, color="#c8334d", fontweight="bold",
             ha="center",
             bbox=dict(boxstyle="round,pad=0.4", fc="white",
                       ec="#c8334d", lw=1.2, alpha=0.95),
-            arrowprops=dict(arrowstyle="->", color="#c8334d", lw=1.5))
+            arrowprops=dict(arrowstyle="->", color="#c8334d", lw=1.5,
+                            connectionstyle="arc3,rad=-0.15"))
 
 # Axes
 ax.set_xlim(0, 1)
@@ -77,14 +78,20 @@ ax.set_ylabel("Inductive bias  →\n(low / scale-driven     →     high / archi
 ax.set_title("Panel a — ML landscape: inductive bias × empirical grounding",
              fontsize=13, fontweight="bold", pad=12)
 
-# Quadrant guides
-ax.axhline(0.5, color="gray", linewidth=0.5, linestyle="--", alpha=0.4)
-ax.axvline(0.5, color="gray", linewidth=0.5, linestyle="--", alpha=0.4)
+# Tier guidelines (3-tier on both axes: low/mid/high IB; de novo / observational / perturbation)
+for ytick in [0.40, 0.70]:
+    ax.axhline(ytick, color="gray", linewidth=0.4, linestyle=":", alpha=0.35)
+for xtick in [0.35, 0.70]:
+    ax.axvline(xtick, color="gray", linewidth=0.4, linestyle=":", alpha=0.35)
 ax.set_xticks([])
 ax.set_yticks([])
 for spine in ax.spines.values():
     spine.set_linewidth(1.2)
 
+# Tier labels — IB on right axis, empirical on bottom axis
+ax.text(0.985, 0.20, "low IB",     fontsize=9, color="gray", style="italic", alpha=0.7, ha="right")
+ax.text(0.985, 0.55, "mid IB",     fontsize=9, color="gray", style="italic", alpha=0.7, ha="right")
+ax.text(0.985, 0.96, "high IB",    fontsize=9, color="gray", style="italic", alpha=0.7, ha="right", va="top")
 # Quadrant hint labels — repositioned away from data
 ax.text(0.02, 0.02, "sequence-only,\nscale-driven", fontsize=8.5,
         color="gray", style="italic", alpha=0.7)
