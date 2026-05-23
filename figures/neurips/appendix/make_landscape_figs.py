@@ -18,6 +18,9 @@ models_a = [
     (0.07, 0.18, "DNABERT-2",         "#999999", 200,  7,  6),
     # Structural priors
     (0.22, 0.55, "AlphaFold",         "#8aa6c8", 200,  7,  6),
+    # Protein LMs (sequence DB → protein representations)
+    (0.30, 0.10, "ESM-2",             "#c8a888", 200,  7,  6),
+    (0.10, 0.42, "ESM-3",             "#c8a888", 200,  7,  6),
     # Sequence-to-function family (observational genomic data, DNA → multi-output)
     (0.32, 0.42, "AlphaGenome",       "#7ac8b8", 200,  7,  6),
     (0.32, 0.32, "Enformer",          "#7ac8b8", 200,  7,  6),
@@ -108,6 +111,9 @@ models_b = [
     (0.04, 0.30, "DNABERT-2",      "#999999", 200,  7,  6),
     # Protein-only single (blue)
     (0.04, 0.42, "AlphaFold",      "#8aa6c8", 200,  7,  6),
+    # Protein LMs (1 biological modality)
+    (0.20, 0.46, "ESM-2",          "#c8a888", 200,  7,  6),
+    (0.42, 0.10, "ESM-3 (intra-protein concat)", "#c8a888", 200,  7,  6),
     # Sequence-to-function family (DNA → multi-output predictions, 1 input modality)
     (0.04, 0.06, "Enformer",       "#7ac8b8", 200,  7,  6),
     (0.10, 0.40, "AlphaGenome",    "#7ac8b8", 200,  7,  6),
